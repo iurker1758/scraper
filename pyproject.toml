@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools >= 78.1.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scraper"
+version = "0.1.0"
+authors = [{name = "Jason Han", email = "jasonhan13848@gmail.com"}]
+description = "A web scraper for manga and light novels"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel",
+]
+
+[tool.ruff.lint]
+select = [
+  "ALL"
+]
+
+ignore = [
+    "COM812",
+    "D100",
+    "D104",
+    "D413",
+    "FBT001",
+    "FBT002"
+]
