@@ -43,3 +43,18 @@ def get_temp_directory(
         shutil.rmtree(temp_file_location, ignore_errors=True)
     temp_file_location.mkdir(parents=True, exist_ok=True)
     return temp_file_location
+
+
+def get_data_directory(folder: str) -> Path:
+    """Get the data directory.
+
+    Args:
+        folder (str): The folder name
+
+    Returns:
+        Path: The path of the folder created
+    """
+    base_dir = get_config("DEFAULT", "DATA_PATH")
+    base_dir_path = Path(base_dir) / folder
+    base_dir_path.mkdir(parents=True, exist_ok=True)
+    return base_dir_path
