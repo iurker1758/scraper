@@ -3,9 +3,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-import scrapy
-import scrapy.http
 from pymongo import UpdateOne
+from scrapy import Request, Spider
+from scrapy.http import Response
 
 from scraper.core.database import DBUtils
 from scraper.royalroad.models import RoyalRoadModel
@@ -13,8 +13,8 @@ from scraper.royalroad.types import RoyalRoadPages
 from scraper.utils.utils import get_data_directory
 
 
-class RoyalRoadSpider(scrapy.Spider):
-    """Spider for scraping quotes from the 'Royal Road' website."""
+class RoyalRoadSpider(Spider):
+    """Spider for scraping quotes from the RoyalRoad website."""
 
     entries_per_page = 20
     name = "royalroad"
@@ -55,22 +55,22 @@ class RoyalRoadSpider(scrapy.Spider):
         for i in range(
             1, min((self.query_limit // self.entries_per_page) + 1, self.max_pages) + 1
         ):
-            yield scrapy.Request(url=f"{base_url}{i}", callback=self.parse)
+            yield Request(url=f"{base_url}{i}", callback=self.parse)
 
-    def parse(self, response: scrapy.http.Response) -> None:
+    def parse(self, response: Response) -> None:
         """Parse the response from a Royal Road page and save its content.
 
         Args:
-            response (scrapy.http.Response): The response containing the page content.
+            response (Response): The response containing the page content.
         """
         self.save_html(response)
         self.save_to_coll(self.parse_response(response))
 
-    def save_html(self, response: scrapy.http.Response) -> None:
+    def save_html(self, response: Response) -> None:
         """Save the HTML content of a response to a file.
 
         Args:
-            response (scrapy.http.Response): The response containing the HTML content.
+            response (Response): The response containing the HTML content.
         """
         base_path = get_data_directory(self.name)
         page = response.url.split("?page=")[-1]
@@ -79,11 +79,11 @@ class RoyalRoadSpider(scrapy.Spider):
         file_name = f"{page}.html"
         Path(file_path / file_name).write_bytes(response.body)
 
-    def parse_response(self, response: scrapy.http.Response) -> list[RoyalRoadModel]:
+    def parse_response(self, response: Response) -> list[RoyalRoadModel]:
         """Parse the response from a Royal Road page and extract story information.
 
         Args:
-            response (scrapy.http.Response): The response containing the page content.
+            response (Response): The response containing the page content.
 
         Returns:
             list[RoyalRoadModel]: A list of RoyalRoadModel instances with extracted

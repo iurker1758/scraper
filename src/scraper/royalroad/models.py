@@ -37,3 +37,4 @@ class RoyalRoadModel(BaseModel):
     chapters: int
     last_updated: datetime
     description: str
+    new: bool = True

@@ -1,11 +1,11 @@
-from scraper.core.service import Fetcher
+from scraper.core.fetcher import Fetcher
 
 
-class AniListFetcher(Fetcher):
-    """A class for fetching data from AniList."""
+class NovelUpdatesFetcher(Fetcher):
+    """A class for fetching data from NovelUpdates."""
 
     def __init__(self, query_limit: int = 250) -> None:
-        """Initialize the AniListFetcher.
+        """Initialize the NovelUpdatesFetcher.
 
         Args:
             query_limit (int, optional): The minimum query limit per fetch.
@@ -14,5 +14,5 @@ class AniListFetcher(Fetcher):
         super().__init__(query_limit=query_limit)
 
     def fetch(self) -> None:
-        """Fetch data from AniList."""
+        """Fetch data from NovelUpdates."""
         raise NotImplementedError("Subclasses must implement this method.")
