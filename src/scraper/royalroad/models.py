@@ -18,7 +18,7 @@ class RoyalRoadModel(BaseModel):
         The rating of the story.
     pages : int
         Number of pages in the story.
-    view : int
+    views : int
         Number of views the story has.
     chapters : int
         Number of chapters in the story.
@@ -33,7 +33,7 @@ class RoyalRoadModel(BaseModel):
     followers: int
     rating: float
     pages: int
-    view: int
+    views: int
     chapters: int
     last_updated: datetime
     description: str

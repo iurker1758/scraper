@@ -119,7 +119,7 @@ class RoyalRoadSpider(Spider):
                     followers=followers,
                     rating=rating,
                     pages=pages,
-                    view=views,
+                    views=views,
                     chapters=chapters,
                     last_updated=last_updated,
                     description=description,

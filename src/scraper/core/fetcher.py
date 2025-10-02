@@ -5,7 +5,7 @@ class Fetcher:
         """Initialize the Fetcher.
 
         Args:
-            query_limit (int, optional): The minimum query limit per fetch.
+            query_limit (int, optional): The maximum query limit per fetch.
                 Defaults to 250.
             max_pages (int, optional): The maximum number of pages to scrape.
                 Defaults to 10.

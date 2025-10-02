@@ -8,7 +8,7 @@ class NovelUpdatesFetcher(Fetcher):
         """Initialize the NovelUpdatesFetcher.
 
         Args:
-            query_limit (int, optional): The minimum query limit per fetch.
+            query_limit (int, optional): The maximum query limit per fetch.
                 Defaults to 250.
         """
         super().__init__(query_limit=query_limit)

@@ -21,7 +21,7 @@ class RoyalRoadFetcher(Fetcher):
         """Initialize the RoyalRoadFetcher.
 
         Args:
-            query_limit (int, optional): The minimum query limit per fetch.
+            query_limit (int, optional): The maximum query limit per fetch.
                 Defaults to 250.
             page (RoyalRoadPages, optional): The page type to scrape.
                 Defaults to "Ongoing Fictions".
