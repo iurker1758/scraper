@@ -10,7 +10,10 @@ class AniListFetcher(Fetcher):
     """A class for fetching data from AniList."""
 
     def __init__(
-        self, query_limit: int = 250, page: AniListPages = "Top 100", max_pages: int = 1
+        self,
+        query_limit: int = 250,
+        page: AniListPages = "Top 100",
+        max_pages: int = 10,
     ) -> None:
         """Initialize the AniListFetcher.
 
@@ -20,7 +23,7 @@ class AniListFetcher(Fetcher):
             page (AniListPages, optional): The page type to scrape.
                 Defaults to "Top 100".
             max_pages (int, optional): The maximum number of pages to scrape.
-                Defaults to 1.
+                Defaults to 10.
         """
         super().__init__(query_limit=query_limit, max_pages=max_pages)
         self.page = page

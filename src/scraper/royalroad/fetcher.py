@@ -16,7 +16,7 @@ class RoyalRoadFetcher(Fetcher):
         self,
         query_limit: int = 250,
         page: RoyalRoadPages = "Ongoing Fictions",
-        max_pages: int = 1,
+        max_pages: int = 10,
     ) -> None:
         """Initialize the RoyalRoadFetcher.
 
