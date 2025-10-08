@@ -178,6 +178,7 @@ config.ini
 
 # Test/temporary files
 temp_files/
+.github
 
 # Data
 data/
