@@ -110,7 +110,7 @@ class RoyalRoadSpider(Spider):
                 item.css("i.fa-calendar + span time::text").get(), "%b %d, %Y"
             )
             description = " ".join(
-                item.css("div[id^=description-] p::text").getall()
+                item.css("div[id^=description-] ::text").getall()
             ).strip()
             ret.append(
                 RoyalRoadModel(
